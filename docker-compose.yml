@@ -10,6 +10,7 @@ services:
       - 4000:3000
     env_file:
       - .env
+    restart: on-failure
 
   frontend:
     container_name: frontend
@@ -18,6 +19,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8081:80
+    restart: on-failure
 
   postgres:
     container_name: postgres
@@ -26,6 +28,7 @@ services:
     image: postgres:12
     env_file:
       - .env
+    restart: on-failure
 
 volumes:
   postgres_data:
